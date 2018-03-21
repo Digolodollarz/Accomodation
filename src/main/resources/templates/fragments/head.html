@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragment="head" th:remove="tag">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
@@ -12,15 +12,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Add Material CSS, replace Bootstrap CSS -->
-    <link href="css/material.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="/css/material.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
-<div th:replace="fragments/header :: header">...</div>
+<div >...</div>
 <main class="container content">
     <h1>This is about it</h1>
     <p>Digolodollarz Technologies P/L</p>
 </main>
-<div th:replace="fragments/footer :: footer">...</div>
+<div>...</div>
 </body>
 </html>

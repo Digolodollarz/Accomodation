@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>This is a house</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header">...</div>
+<main class="container content">
+    <div class="jumbotron">
+        <div class="images">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li th:each="image, it: ${house.images}" data-th-attr="data-slide-to=${it.index}"
+                        data-target="#carouselExampleIndicators" th:classappend="${it.index==0?'active':''}"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div th:each="imageUrl, it: ${house.images}" class="carousel-item"
+                         th:classappend="${it.index==0?'active':''}">
+                        <img class="d-block w-100" th:src="'/images/'+${house.id}+'/'+${imageUrl}"
+                             th:alt="${house.title}">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="detail">
+            <h1 th:text="${house.title}">House Title</h1>
+            <p th:text="${house.address}">House address</p>
+            <p th:text="${house.capacity}"></p>
+            <p th:text="${house.occupied}"></p>
+            <p th:text="${house.rooms}"></p>
+        </div>
+    </div>
+</main>
+<div th:replace="fragments/footer :: footer">...</div>
+</body>
+</html>
