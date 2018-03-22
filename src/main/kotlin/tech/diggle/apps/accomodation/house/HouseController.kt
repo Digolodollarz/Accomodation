@@ -1,4 +1,4 @@
-package tech.diggle.apps.accomodation.admin
+package tech.diggle.apps.accomodation.house
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -7,9 +7,6 @@ import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.ModelAndView
 import tech.diggle.apps.accomodation.file.FileUploadService
-import tech.diggle.apps.accomodation.house.House
-import tech.diggle.apps.accomodation.house.HouseForm
-import tech.diggle.apps.accomodation.house.HouseService
 import javax.servlet.http.HttpServletRequest
 
 @Controller
@@ -35,12 +32,13 @@ class HouseController(@Autowired val service: HouseService,
                        request: HttpServletRequest): String {
         if (bindingResult.hasErrors()) return "house/create"
         var house = House()
-        house.title = form.title
-        house.address = form.address
-        house.capacity = form.capacity
-        house.occupied = form.occupied
-        house.rooms = form.rooms
-
+        house.title = form.title!!
+        house.address = form.address!!
+        house.location = form.location!!
+        house.capacity = form.capacity!!
+        house.occupied = form.occupied!!
+        house.rooms = form.rooms!!
+        house.owner = form.owner
         house = service.add(house)
 
         if (form.images.count() > 0) {
@@ -67,4 +65,11 @@ class HouseController(@Autowired val service: HouseService,
     @ResponseBody
     fun getHouseImage(@PathVariable("house") houseId: Long,
                       @PathVariable("filename") filename: String) = fileUploadService.getFile(houseId, filename)
+
+    @GetMapping("houses")
+    fun listHouses(model: Model): String {
+        val houses: List<House> = service.getAll()
+        model.addAttribute("houses", houses)
+        return "house/houses"
+    }
 }

@@ -1,7 +1,9 @@
 package tech.diggle.apps.accomodation.house
 
 import org.hibernate.validator.constraints.NotEmpty
+import tech.diggle.apps.accomodation.owner.Owner
 import javax.persistence.*
+import javax.validation.constraints.NotNull
 
 @Entity
 class House {
@@ -11,11 +13,16 @@ class House {
 
     @Column
     @NotEmpty
+    @NotNull
     var title: String = ""
 
     @Column
     @NotEmpty
     var address: String = ""
+
+    @Column
+    @NotNull
+    var location: String = ""
 
     @Column
     var capacity: Int = 0
@@ -26,6 +33,9 @@ class House {
     @Column
     var rooms: Int = 0
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     var images: MutableList<String> = mutableListOf()
+
+    @ManyToOne
+    var owner: Owner? = null
 }
