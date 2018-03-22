@@ -31,26 +31,8 @@ class HouseController(@Autowired val service: HouseService,
                        bindingResult: BindingResult,
                        request: HttpServletRequest): String {
         if (bindingResult.hasErrors()) return "house/create"
-        var house = House()
-        house.title = form.title!!
-        house.address = form.address!!
-        house.location = form.location!!
-        house.capacity = form.capacity!!
-        house.occupied = form.occupied!!
-        house.rooms = form.rooms!!
-        house.owner = form.owner
-        house = service.add(house)
 
-        if (form.images.count() > 0) {
-            for (file in form.images) {
-                if (fileUploadService.storeFile(house.id, file) != null) {
-                    val filename = file.originalFilename
-                    house.images.add(filename)
-                }
-            }
-        }
-
-        house = service.update(house)
+        val house = service.create(form)
         model.addAttribute("house", house)
 
         val url = request.requestURL

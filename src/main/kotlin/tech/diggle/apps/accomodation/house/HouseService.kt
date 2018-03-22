@@ -5,4 +5,5 @@ interface HouseService {
     fun get(id: Long): House
     fun update(house: House): House
     fun getAll(): List<House>
+    fun create(houseForm: HouseForm): House
 }
