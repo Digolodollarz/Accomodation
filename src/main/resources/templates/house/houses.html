@@ -15,15 +15,18 @@
                      th:src="${house.images.size() > 0 ? '/images/'+house.id+'/'+ house.images[0] :'/images/m5.jpg'}"
                      th:alt="${house.title}" style="max-height: 200px;">
                 <div class="card-img-overlay card-img-overlay-top">
-                    <h5 class="card-title" th:text="${house.title}">Card title</h5>
+                    <span th:text="${house.capacity - house.occupied +' places of ' + house.capacity}">4 places of 16 available</span>
                 </div>
                 <div class="card-body">
-
-                    <p class="card-text" th:text="${house.address}">This is a wider card with supporting text below
+                    <a class="link link-no-style" th:href="${'/house/'+house.id}">
+                        <h5 class="card-title" th:text="${house.title}">Card title</h5>
+                    </a>
+                    <div class="card-text border-top border-bottom border-secondary" th:text="${house.address}">This is a wider card
+                        with supporting text below
                         as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                        additional content. This content is a little bit longer.</div>
+                    <a th:href="${'/house/'+house.id}" class="btn btn-outline-primary">View</a>
                 </div>
-                <a th:href="${'/house/'+house.id}" class="btn btn-primary">View</a>
             </div>
         </div>
     </div>

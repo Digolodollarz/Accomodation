@@ -65,6 +65,7 @@ body {
 
 main {
   padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .footer {
@@ -80,6 +81,11 @@ main {
   bottom: unset;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.link-no-style,.link-no-style:hover{
+  color: unset;
+  text-decoration: none;
 }
 
 //.card-columns {

@@ -34,7 +34,7 @@ class House {
     var rooms: Int = 0
 
     @ElementCollection(fetch = FetchType.EAGER)
-    var images: MutableList<String> = mutableListOf()
+    var images: MutableList<Long> = mutableListOf()
 
     @ManyToOne
     var owner: Owner? = null

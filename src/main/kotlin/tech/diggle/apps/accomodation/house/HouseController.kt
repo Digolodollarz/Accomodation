@@ -43,10 +43,15 @@ class HouseController(@Autowired val service: HouseService,
         return """redirect:$base/house/${house.id}/"""
     }
 
-    @GetMapping("images/{house}/{filename:.+}")
+    @GetMapping("images/{house}/{fileId:.+}")
     @ResponseBody
-    fun getHouseImage(@PathVariable("house") houseId: Long,
-                      @PathVariable("filename") filename: String) = fileUploadService.getFile(houseId, filename)
+    fun getImage(@PathVariable("house") houseId: Long,
+                 @PathVariable("fileId") fileId: Long) = fileUploadService.getFile(fileId)
+
+//    @GetMapping("images/{house}/{filename:.+}")
+//    @ResponseBody
+//    fun getHouseImage(@PathVariable("house") houseId: Long,
+//                      @PathVariable("filename") filename: String) = fileUploadService.getFile(houseId, filename)
 
     @GetMapping("houses")
     fun listHouses(model: Model): String {

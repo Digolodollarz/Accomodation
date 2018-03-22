@@ -62,7 +62,8 @@ body {
   /* Margin bottom by footer height */ }
 
 main {
-  padding-top: 1em; }
+  padding-top: 1em;
+  padding-bottom: 1em; }
 
 .footer {
   position: absolute;
@@ -78,3 +79,7 @@ main {
   bottom: unset;
   color: white;
   background-color: rgba(0, 0, 0, 0.5); }
+
+.link-no-style, .link-no-style:hover {
+  color: unset;
+  text-decoration: none; }

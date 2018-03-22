@@ -8,7 +8,7 @@
 <body>
 <div th:replace="fragments/header :: header">...</div>
 <main class="container content">
-    <div class="jumbotron">
+    <div class="card">
         <div class="images">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -32,12 +32,18 @@
                 </a>
             </div>
         </div>
-        <div class="detail">
-            <h1 th:text="${house.title}">House Title</h1>
+        <div class="card-body">
+            <h1 class="card-title" th:text="${house.title}">House Title</h1>
             <p th:text="${house.address}">House address</p>
-            <p th:text="${house.capacity}"></p>
-            <p th:text="${house.occupied}"></p>
-            <p th:text="${house.rooms}"></p>
+            <p>Total space: <span th:text="${house.capacity}"></span></p>
+            <p>Current occupants: <span th:text="${house.occupied}"></span></p>
+            <p>Available space:
+                <span
+                        th:text="${house.capacity - house.occupied >0 ? house.capacity - house.occupied : 'None' }"></span>
+            </p>
+            <p>Number of rooms: <span th:text="${house.rooms}"></span></p>
+            <a th:href="${'mailto:'+house.owner.email}" class="btn btn-primary">Book house</a>
+            <a th:href="${'/house/'+house.id+'/edit'}" class="btn btn-outline-primary">Edit listing</a>
         </div>
     </div>
 </main>
