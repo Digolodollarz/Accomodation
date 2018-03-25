@@ -12,6 +12,8 @@ class DBImage{
     @Column(name = "house_id")
     @NotNull
     var houseId: Long? = null
+
+    @Column(columnDefinition = "LONGBLOB")
     @NotNull
     var byteArray: ByteArray? = null
 
