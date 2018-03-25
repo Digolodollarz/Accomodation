@@ -67,6 +67,15 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="rooms">Price</label>
+                    <input type="number" id="price" class="form-control"
+                           th:field="*{price}" placeholder="Price per head" required>
+                    <div class="invalid-feedback">
+                        Please enter the amount per head.
+                    </div>
+                </div>
+
                 <div class="border rounded border-primary p-3 mb-3">
                     <h5>Images</h5>
                     <p>You may upload images of your house below. More images tend to perform better</p>

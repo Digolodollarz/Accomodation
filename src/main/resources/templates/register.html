@@ -2,23 +2,13 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Registration Form</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
-
-    <!-- CSS -->
-    <!-- Add Material font (Roboto) and Material icon as needed -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Add Material CSS, replace Bootstrap CSS -->
-    <link href="css/material.min.css" rel="stylesheet">
+    <title>Register | Accommodation</title>
+    <div th:replace="fragments/head :: head"></div>
 </head>
 <body>
 <div th:replace="fragments/header :: header">...</div>
 
-<div class="container">
+<main class="content">
     <div class="row justify-content-center">
         <div class="col-12 col-md-9 col-lg-6 jumbotron">
             <form autocomplete="off" action="#" th:action="@{/register}"
@@ -64,7 +54,7 @@
             </form>
         </div>
     </div>
-</div>
+</main>
 
 </body>
 </html>

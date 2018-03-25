@@ -1,3 +1,17 @@
+$primary: (
+        color: #3c6583,
+        dark: #3c6583,
+        light: #2c9bf5
+);
+
+$secondary: (
+        color: #ffff00,
+        dark: #c7cc00,
+        light: #ffff5a
+);
+
+@import "material/assets/scss/material.scss";
+
 :root {
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -83,23 +97,40 @@ main {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.link-no-style,.link-no-style:hover{
+.link-no-style, .link-no-style:hover {
   color: unset;
   text-decoration: none;
 }
 
-//.card-columns {
-//  column-count: 1;
-//}
-//
-//@media (min-width: var(breakpoint-md)) {
-//  .card-columns {
-//    column-count: 2;
-//  }
-//}
-//
-//@media (min-width: var(--breakpoint-lg)) {
-//  .card-columns {
-//    column-count: 3;
-//  }
-//}
+.card-columns {
+  column-count: 1;
+}
+
+@media (min-width: var(breakpoint-md)) {
+  .card-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: var(--breakpoint-lg)) {
+  .card-columns {
+    column-count: 3;
+  }
+}
+
+.images {
+  max-height: 480px;
+  .carousel.slide {
+    max-height: inherit;
+  }
+  .carousel-inner {
+    max-height: inherit;
+    .carousel-item {
+      max-height: inherit;
+
+    }
+    .container {
+      padding: unset;
+    }
+  }
+}

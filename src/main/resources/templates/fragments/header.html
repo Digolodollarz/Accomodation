@@ -20,8 +20,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/house/create">Create House</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/houses">Houses</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="housesDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Housing
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="housesDropdown">
+                        <a class="dropdown-item" href="/houses">Houses</a>
+                        <a class="dropdown-item" href="/admin/house/create">Create House</a>
+                        <!--<a class="dropdown-item" href="#">This</a>-->
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="lifestyleDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        LifeStyle
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="lifestyleDropdown">
+                        <a class="dropdown-item" href="/shop">Shops</a>
+                        <a class="dropdown-item" href="/taxi">Taxis</a>
+                        <a class="dropdown-item" href="/church">Church</a>
+                    </div>
                 </li>
             </ul>
 
@@ -38,6 +57,9 @@
                 </li>
                 <li class="nav-item" sec:authorize="!isFullyAuthenticated()">
                     <a class="nav-link btn btn-outline-secondary navbar-btn" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
                 </li>
             </ul>
         </div>

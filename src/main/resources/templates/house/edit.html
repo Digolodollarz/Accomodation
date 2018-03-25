@@ -1,0 +1,159 @@
+<!DOCTYPE html >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create House</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header">...</div>
+<main class="container content">
+    <div class="row justify-content-center align-items-center">
+        <div class="jumbotron col-12 col-md-9 col-lg-6">
+            <h1>Create new house</h1>
+            <form method="post" th:action="@{'/admin/house/'+${house.id}+'/edit'}"
+                  enctype="multipart/form-data" th:object="${house}"
+                  class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input class="form-control" type="text" th:field="*{title}"
+                           id="title" placeholder="Enter title" required>
+                    <div class="invalid-feedback">Please enter title that will be displayed on house listing</div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input class="form-control" type="text" th:field="*{address}"
+                           id="address" placeholder="Enter address" required>
+                    <div class="invalid-feedback">
+                        Please enter the street address of the house. This is needed by home seekers to find you.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Suburb</label>
+                    <select id="location" class="form-control"
+                            th:field="*{location}" required>
+                        <!--<option th:value="0" >Select the suburb</option>-->
+                        <option value="" disabled selected hidden>Please Choose suburb</option>
+                        <option value="Selbourne">Selbourne</option>
+                        <option value="Riverside" selected>Riverside</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="capacity">Capacity</label>
+                    <input type="number" id="capacity" class="form-control" th:field="*{capacity}"
+                           placeholder="Total number of people that can be accommodated" required>
+                    <div class="invalid-feedback">
+                        Please enter the maximum number of people you can accommodate.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="occupied">Occupied Capacity</label>
+                    <input type="number" class="form-control" id="occupied"
+                           th:field="*{occupied}" placeholder="People currently booked" required>
+                    <div class="invalid-feedback">
+                        Please enter the number of people currently staying with you. Enter 0 if none.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rooms">Number of rooms</label>
+                    <input type="number" id="rooms" class="form-control"
+                           th:field="*{rooms}" placeholder="Total number of rooms" required>
+                    <div class="invalid-feedback">
+                        Please state the number of rooms at your place.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rooms">Price</label>
+                    <input type="number" id="price" class="form-control"
+                           th:field="*{price}" placeholder="Price per head" required>
+                    <div class="invalid-feedback">
+                        Please enter the amount per head.
+                    </div>
+                </div>
+
+                <div class="border rounded border-primary p-3 mb-3">
+                    <h5>Images</h5>
+                    <p>You may upload images of your house below. More images tend to perform better</p>
+                    <div class="form-group">
+                        <label for="images"></label>
+                        <input type="file" id="images" name="images" class=""
+                               multiple="multiple"/>
+                    </div>
+                </div>
+
+                <div class="border rounded border-primary p-3 mb-3" id="owner-detail">
+                    <h5>Owner Details</h5>
+                    <div class="form-group">
+                        <label for="ownerName">Name of owner</label>
+                        <input type="text" id="ownerName" class="form-control"
+                               th:field="*{owner.name}" required>
+                        <div class="invalid-feedback">
+                            Please give the name of the owner
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ownerEmail">Email</label>
+                        <input type="email" id="ownerEmail" class="form-control"
+                               th:field="*{owner.email}" placeholder="Email address" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else. We only use your email to contact you and connect you with clients.
+                        </small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="ownerPhone">Phone</label>
+                        <input type="text" id="ownerPhone" class="form-control"
+                               th:field="*{owner.phone}" placeholder="Phone number" required>
+                        <div class="invalid-feedback">
+                            Please provider your phone number in a valid format. This is needed for all communications
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="ownerPhone2">Alternate phone</label>
+                        <input type="text" id="ownerPhone2" class="form-control"
+                               th:field="*{owner.phone2}">
+                        <small id="phone2Help" class="form-text text-muted">
+                            If you have an alternate phone number (Ideally from a different network) for easier
+                            communication
+                        </small>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>
+<div th:replace="fragments/footer :: footer">...</div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>

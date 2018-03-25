@@ -3,7 +3,7 @@ package tech.diggle.apps.accomodation.house
 import org.springframework.web.multipart.MultipartFile
 import tech.diggle.apps.accomodation.owner.Owner
 
-class HouseForm {
+class HouseForm() {
     var id: Long? = null
     var title: String? = null
     var address: String? = null
@@ -13,4 +13,17 @@ class HouseForm {
     var rooms: Int? = null
     var images: MutableList<MultipartFile> = mutableListOf()
     var owner: Owner? = null
+    var price: Float? = null
+
+    constructor(house: House) : this() {
+        this.id = house.id
+        this.title = house.title
+        this.address = house.address
+        this.location = house.location
+        this.capacity = house.capacity
+        this.occupied = house.occupied
+        this.rooms = house.rooms
+        this.owner = house.owner
+        this.price = house.price
+    }
 }

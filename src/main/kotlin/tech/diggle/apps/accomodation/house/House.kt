@@ -38,4 +38,7 @@ class House {
 
     @ManyToOne
     var owner: Owner? = null
+
+    @Column
+    var price: Float? = 0f
 }

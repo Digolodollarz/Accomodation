@@ -43,6 +43,33 @@ class HouseController(@Autowired val service: HouseService,
         return """redirect:$base/house/${house.id}/"""
     }
 
+
+    @GetMapping("admin/house/{house}/edit")
+    fun getEditForm(@PathVariable("house") houseId: Long,
+                    model: Model): String {
+        val house = service.get(houseId)
+        model.addAttribute("house", HouseForm(house))
+        return "house/edit"
+    }
+
+    @PostMapping("/admin/house/{house}/edit")
+    fun postEditForm(@ModelAttribute form: HouseForm, model: Model,
+                     @PathVariable("house") houseId: Long,
+                     bindingResult: BindingResult,
+                     request: HttpServletRequest): String {
+        if (bindingResult.hasErrors()) return "/admin/house/edit/$houseId"
+        form.id = houseId
+        val house = service.create(form)
+        model.addAttribute("house", house)
+
+        val url = request.requestURL
+        val uri = request.requestURI
+        val ctx = request.contextPath
+        val base = url.substring(0, url.length - uri.length + ctx.length)
+
+        return """redirect:$base/house/${house.id}/"""
+    }
+
     @GetMapping("images/{house}/{fileId:.+}")
     @ResponseBody
     fun getImage(@PathVariable("house") houseId: Long,
