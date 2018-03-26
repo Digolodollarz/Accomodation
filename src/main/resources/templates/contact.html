@@ -1,0 +1,50 @@
+<!DOCTYPE html >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title + ' | NUST Accommodation'}"></title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header">...</div>
+<main class="container content">
+    <div class="card">
+        <div class="card-header">
+            <h1>Contact us</h1>
+        </div>
+        <div class="card-body">
+            You may contact us through email or phone.
+
+            <h3>House Registration</h3>
+            <p>
+                <strong>Email: </strong>
+                <a href="mailto:registration@accommodation.com">registration@accommodation.com</a>
+            </p>
+            <p>To register your house, you will need to provide proof of identity,
+                personal and contact details as well as photos of the house.
+                To preserve the integrity of the system, we reserve the right to
+                deny registration if the verification conditions are not met.
+            </p>
+
+            <h3>General queries</h3>
+            <p>Please use the email below for any queries related to this website and for assistance.</p>
+            <p>
+                <strong>Email: </strong>
+                <a href="mailto:contact@accommodation.com">contact@accommodation.com</a>
+            </p>
+
+            <h3>Support</h3>
+            <p>For support related issues, use one of the options below</p>
+            <p>
+                <strong>Email: </strong>
+                <a href="mailto:support@accommodation.com">support@accommodation.com</a><br>
+                <strong>Phone: </strong>
+                <a href="tel:+263-71-415-7152" class="footer-link">+263 714 157 152</a>
+            </p>
+
+        </div>
+    </div>
+</main>
+<div th:replace="fragments/footer :: footer">...</div>
+</body>
+</html>

@@ -23,6 +23,11 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<kotlin.version>1.2.20</kotlin.version>
+
+        <INSTANCE_CONNECTION_NAME>accomodation-1521978047563:us-central1:acco</INSTANCE_CONNECTION_NAME>
+        <user>root</user>
+        <password>#Pass123</password>
+        <database>acco</database>
 	</properties>
 
 	<dependencies>
@@ -68,6 +73,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.google.cloud.sql</groupId>
+            <!-- If using MySQL 6.x driver, use mysql-socket-factory-connector-j-6 instead -->
+            <artifactId>mysql-socket-factory</artifactId>
+            <version>1.0.5</version>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -136,6 +147,16 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>1.3.1</version>
+				<configuration>
+					<project>accomodation-1521978047563</project>
+					<version>1</version>
+				</configuration>
+
 			</plugin>
 		</plugins>
 	</build>

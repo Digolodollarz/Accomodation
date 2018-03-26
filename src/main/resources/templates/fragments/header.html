@@ -17,9 +17,6 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/house/create">Create House</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="housesDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,7 +24,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="housesDropdown">
                         <a class="dropdown-item" href="/houses">Houses</a>
-                        <a class="dropdown-item" href="/admin/house/create">Create House</a>
+                        <a  sec:authorize="isFullyAuthenticated()" class="dropdown-item" href="/admin/house/create">Create House</a>
                         <!--<a class="dropdown-item" href="#">This</a>-->
                     </div>
                 </li>
@@ -42,24 +39,25 @@
                         <a class="dropdown-item" href="/church">Church</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="cityLifeDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        City Life
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="cityLifeDropdown">
+                        <a class="dropdown-item" href="/city/recreation">Recreation</a>
+                        <a class="dropdown-item" href="/city/movies">Movies</a>
+                        <a class="dropdown-item" href="/city/travel">Travel</a>
+                    </div>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" sec:authorize="isFullyAuthenticated()">
-                    <form th:action="@{/logout}" method="get">
-                        <button class="btn btn-md btn-danger navbar-btn" name="registration"
-                                type="Submit">Logout
-                        </button>
-                    </form>
-                </li>
-                <li class="nav-item" sec:authorize="!isFullyAuthenticated()">
-                    <a class="nav-link btn btn-md navbar-btn btn-primary" href="/login">Login</a>
-                </li>
-                <li class="nav-item" sec:authorize="!isFullyAuthenticated()">
-                    <a class="nav-link btn btn-outline-secondary navbar-btn" href="/register">Register</a>
-                </li>
                 <li class="nav-item">
                     <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link">Contact</a>
                 </li>
             </ul>
         </div>

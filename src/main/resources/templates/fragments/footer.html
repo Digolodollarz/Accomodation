@@ -46,7 +46,32 @@
 
 <footer class="footer" th:fragment="footer">
     <div class="container">
-        This is footer &copy; Diggle App Studios
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <a href="/">
+                    <h3 class="footer-header">NUST Accommodation</h3>
+                </a>
+                <a href="mailto:support@accomodation.com" class="footer-link">Register House</a>
+                <a href="mailto:admin@accomodation.com" class="footer-link">Request information</a>
+                &copy; NUST Accommodation 2018
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <h3 class="footer-header">Navigation</h3>
+                <a href="/houses" class="footer-link">Houses</a>
+                <a href="/shop" class="footer-link">Shops</a>
+                <a href="/taxi">Getting Around</a>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <h3 class="footer-header">Contact Us</h3>
+                <a href="mailto:support@accomodation.com" class="footer-link">Email support@accommodation.com</a>
+                <a href="tel:+263-71-415-7152" class="footer-link">Call +263 714 157 152</a>
+                Technical Support: <a href="mailto:apps@diggle.tech">Diggle Apps</a>
+                <a class="nav-item" sec:authorize="isFullyAuthenticated()" href="/logout"
+                   class="footer-link">Logout</a>
+                <a sec:authorize="!isFullyAuthenticated()" class="footer-link"
+                   href="/login">Login</a>
+            </div>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

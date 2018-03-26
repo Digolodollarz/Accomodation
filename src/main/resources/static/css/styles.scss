@@ -1,11 +1,11 @@
 $primary: (
-        color: #3c6583,
+        color: #3c8cc5,
         dark: #3c6583,
         light: #2c9bf5
 );
 
 $secondary: (
-        color: #ffff00,
+        color: #ffd341,
         dark: #c7cc00,
         light: #ffff5a
 );
@@ -70,11 +70,11 @@ $secondary: (
 -------------------------------------------------- */
 html {
   position: relative;
-  min-height: 100%;
+  min-height: calc(100% - 60px);
 }
 
 body {
-  margin-bottom: 60px; /* Margin bottom by footer height */
+  //margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 main {
@@ -83,11 +83,11 @@ main {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
+  //position: absolute;
+  //bottom: 0;
   width: 100%;
   min-height: 60px; /* Set the fixed height of the footer here */
-  line-height: 60px; /* Vertically center the text there */
+  // line-height: 60px; /* Vertically center the text there */
   background-color: #dedede;
 }
 
@@ -106,13 +106,13 @@ main {
   column-count: 1;
 }
 
-@media (min-width: var(breakpoint-md)) {
+@media only screen and (min-width: 768px) {
   .card-columns {
     column-count: 2;
   }
 }
 
-@media (min-width: var(--breakpoint-lg)) {
+@media only screen and (min-width: 992px) {
   .card-columns {
     column-count: 3;
   }
@@ -133,4 +133,37 @@ main {
       padding: unset;
     }
   }
+}
+
+/*===========================================
+Footer Styles here
+Copyright: Diggle App Studios
+ ===========================================*/
+.footer {
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+
+  background-color: #505050;
+  color: #d8d8d8;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  .footer-header {
+
+  }
+  .footer-link {
+    display: block;
+
+  }
+}
+
+/*
+
+ */
+.card-header.large{
+  background: theme-color(primary);
+  color: white;
+  min-height: 172px;
 }

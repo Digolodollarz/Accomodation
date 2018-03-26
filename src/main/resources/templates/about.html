@@ -2,16 +2,46 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Digolodollarz Technologies</title>
+    <title th:text="${title + ' | NUST Accommodation'}"></title>
     <div th:replace="fragments/head :: head"></div>
 </head>
 <body>
 <div th:replace="fragments/header :: header">...</div>
 <main class="container content">
-    <h1>Spring Starter Template</h1>
-    <p>This template serves as the base for
-        Spring and Thymeleaf based applications for
-        <a href="//diggle.tech/apps">Diggle App Studios</a></p>
+    <div class="card">
+        <div class="card-header large d-flex align-items-end justify-content-center">
+            <h2>NUST Off Campus Accommodation</h2>
+        </div>
+        <div class="card-body mx-auto" style="max-width: 640px;">
+            <br>
+            <h5 class="card-title">A site dedicated to streamlining a student's access to the City of Kings</h5>
+            <p>Getting started with life in a new city may be a little intimidating,
+                with uncertainties abound. Fret not, for we are here to help you settle in quickly an sea
+            </p>
+
+            <h5 class="card-title">Accommodation Information</h5>
+            <p>We have a database of property owners who are willing to accommodate NUST students in
+                their premises. Why are you waiting, go over and look at the <a href="/houses">houses on offer</a>
+                . Find your house, contact the owner and that is all there is to it.
+            </p>
+            <p>
+                We only provide you with the information about the houses. The contract terms you
+                reach with your property owners are up to you, and we won't interfere with the process.
+            </p>
+
+            <h5 class="card-title">Getting to know the city</h5>
+            <p>
+                The City of Bulawayo abounds with shopping and recreational facilities.
+                Use the navigation links to get to know your way around the city like a
+                veteran in no time.
+            </p>
+            <p>
+                Wishing you a happy stay in the City of Kings
+                and the National University of Science and Technology
+            </p>
+        </div>
+    </div>
+
 </main>
 <div th:replace="fragments/footer :: footer">...</div>
 </body>

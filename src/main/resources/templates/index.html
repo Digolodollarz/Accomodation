@@ -8,37 +8,41 @@
 <body>
 <div th:replace="fragments/header :: header">...</div>
 <main class="container content">
-    <div class="card">
-        <div class="card-body">
-            <h1>This is about it</h1>
+    <div class="card bg-dark text-white">
+        <img class="card-img img-fluid" src="/images/nust-commerce.jpg" alt="NUST commerce building">
+        <div class="card-img-overlay">
+            <h1>NUST Off Campus Accommodation</h1>
 
-            <p>Digolodollarz Technologies P/L</p>
+            <p class="font-weight-bold">Property owners and seekers wishing to be connected together</p>
         </div>
     </div>
 
     <div class="card mt-1" id="houses">
-        <div class="card-header">
-            <h5>Houses</h5>
+        <div class="card-header bg-primary text-white">
+            <h2>Houses</h2>
         </div>
-        <div class="card-body">
-            <div class="card" th:each="house : ${houses}">
-                <img class="card-img-top img-fluid"
-                     th:src="${house.images.size() > 0 ? '/images/'+house.id+'/'+ house.images[0] :'/images/m5.jpg'}"
-                     th:alt="${house.title}" style="max-height: 200px;">
-                <div class="card-img-overlay card-img-overlay-top">
-                    <span th:text="${house.capacity - house.occupied +' places of ' + house.capacity}">4 places of 16 available</span>
-                </div>
-                <div class="card-body">
-                    <a class="link link-no-style" th:href="${'/house/'+house.id}">
-                        <h5 class="card-title" th:text="${house.title}">Card title</h5>
-                    </a>
-                    <div class="card-text border-top border-bottom border-secondary" th:text="${house.address}">This is
-                        a wider card
-                        with supporting text below
-                        as a natural lead-in to
-                        additional content. This content is a little bit longer.
+        <div class="card-body" style="padding: 8px;">
+            <div class="card-columns">
+                <div class="card" th:each="house : ${houses}">
+                    <img class="card-img-top img-fluid"
+                         th:src="${house.images.size() > 0 ? '/images/'+house.id+'/'+ house.images[0] :'/images/m5.jpg'}"
+                         th:alt="${house.title}" style="max-height: 200px;">
+                    <div class="card-img-overlay card-img-overlay-top">
+                        <span th:text="${house.capacity - house.occupied +' places of ' + house.capacity}">4 places of 16 available</span>
                     </div>
-                    <a th:href="${'/house/'+house.id}" class="btn btn-outline-primary">View</a>
+                    <div class="card-body">
+                        <a class="link link-no-style" th:href="${'/house/'+house.id}">
+                            <h5 class="card-title" th:text="${house.title}">Card title</h5>
+                        </a>
+                        <div class="card-text border-top border-bottom border-secondary" th:text="${house.address}">This
+                            is
+                            a wider card
+                            with supporting text below
+                            as a natural lead-in to
+                            additional content. This content is a little bit longer.
+                        </div>
+                        <a th:href="${'/house/'+house.id}" class="btn btn-outline-primary">View</a>
+                    </div>
                 </div>
             </div>
         </div>
