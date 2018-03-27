@@ -15,7 +15,7 @@ class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    var id: Int = 0
+    var id: Long = 0
 
     @Column(name = "email")
     @Email(message = "*Please provide a valid Email")
@@ -52,16 +52,4 @@ class User {
             }
             return `is`
         }
-
-
-    val isDriver: Boolean
-        get() {
-            var `is` = false
-            for (role in roles!!) {
-                if (role.role == "DRIVER")
-                    `is` = true
-            }
-            return `is`
-        }
-
 }
