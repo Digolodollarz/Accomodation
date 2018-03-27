@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("admin/user")
 class UserController(val service: UserService) {
     @GetMapping
     fun index(model: Model): String {
