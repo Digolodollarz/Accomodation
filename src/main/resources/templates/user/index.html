@@ -17,6 +17,7 @@
             <div class="list-group">
                 <div th:each="user : ${users}" class="list-group-item">
                     <span th:text="${user.name + ' ' + user.lastName}"></span>
+                    <span th:text="${user.email}"></span>
                     <a th:href="${'/user/disable/'+user.id}">Disable</a>
                 </div>
             </div>
