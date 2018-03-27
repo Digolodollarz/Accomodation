@@ -36,7 +36,7 @@ class UserController(val service: UserService) {
         val ctx = request.contextPath
         val base = url.substring(0, url.length - uri.length + ctx.length)
 
-        return """redirect:$base/user/"""
+        return """redirect:$base/admin/user"""
     }
 
     @GetMapping("disable/{userId}")
