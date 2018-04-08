@@ -25,7 +25,7 @@ public class IndexController {
     @RequestMapping("/")
     public ModelAndView Home() {
         ModelAndView index = new ModelAndView("index");
-        List<House> houses = houseService.get(0, 10);
+        List<House> houses = houseService.getAvailable(0, 10);
         index.addObject("houses", houses);
         return index;
     }

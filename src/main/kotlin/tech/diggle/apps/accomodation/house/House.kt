@@ -41,4 +41,10 @@ class House {
 
     @Column
     var price: Float? = 0f
+
+    @Column
+    var available: Boolean = true
+
+    @Column
+    var active: Boolean = true
 }

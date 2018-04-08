@@ -14,6 +14,8 @@ class HouseForm() {
     var images: MutableList<MultipartFile> = mutableListOf()
     var owner: Owner? = null
     var price: Float? = null
+    var active: Boolean = true
+    var available: Boolean = true
 
     constructor(house: House) : this() {
         this.id = house.id
@@ -25,5 +27,7 @@ class HouseForm() {
         this.rooms = house.rooms
         this.owner = house.owner
         this.price = house.price
+        this.available = house.available
+        this.active = house.active
     }
 }

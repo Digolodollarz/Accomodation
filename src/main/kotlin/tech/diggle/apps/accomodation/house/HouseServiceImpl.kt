@@ -39,6 +39,8 @@ class HouseServiceImpl(@Autowired val repository: HouseRepository,
         house.occupied = form.occupied!!
         house.rooms = form.rooms!!
         house.price = form.price
+        house.active = form.active
+        house.available = form.available
 
         val owner = ownerService.getOrAdd(form.owner!!)
 
@@ -59,5 +61,19 @@ class HouseServiceImpl(@Autowired val repository: HouseRepository,
 
     override fun get(page: Int, size: Int): List<House> {
         return this.repository.findAll(PageRequest(page, size)).content
+    }
+
+    override fun removeHouse(houseId: Long) {
+        val house = this.repository.findOne(houseId)
+        house.active = false
+        this.repository.save(house)
+    }
+
+    override fun getActive(page: Int, size: Int): List<House> {
+        return this.repository.findByActiveTrue(PageRequest(page, size)).content
+    }
+
+    override fun getAvailable(page: Int, size: Int): List<House> {
+        return this.repository.findByAvailableTrueAndActiveTrue(PageRequest(page, size)).content
     }
 }

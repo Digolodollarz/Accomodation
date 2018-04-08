@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Create House</title>
+    <title>Edit Listing | Accommodation</title>
     <div th:replace="fragments/head :: head"></div>
 </head>
 <body>
@@ -10,7 +10,7 @@
 <main class="container content">
     <div class="row justify-content-center align-items-center">
         <div class="jumbotron col-12 col-md-9 col-lg-6">
-            <h1>Create new house</h1>
+            <h1>Edit House</h1>
             <form method="post" th:action="@{'/admin/house/'+${house.id}+'/edit'}"
                   enctype="multipart/form-data" th:object="${house}"
                   class="needs-validation" novalidate>
@@ -128,6 +128,14 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="available">Available</label>
+                    <input type="checkbox" id="available"
+                           th:field="*{available}">
+                    <small id="availableHelp" class="form-text text-muted">
+                        Allows the house to be found on the list of houses by students
+                    </small>
+                </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

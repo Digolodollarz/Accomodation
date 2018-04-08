@@ -70,6 +70,22 @@ class HouseController(@Autowired val service: HouseService,
         return """redirect:$base/house/${house.id}/"""
     }
 
+    @GetMapping("admin/house/{house}/edit/delete")
+    fun removeHouse(@PathVariable("house") houseId: Long,
+                    model: Model,
+                    request: HttpServletRequest): String {
+
+        service.removeHouse(houseId)
+
+        val url = request.requestURL
+        val uri = request.requestURI
+        val ctx = request.contextPath
+        val base = url.substring(0, url.length - uri.length + ctx.length)
+
+        return """redirect:$base/houses"""
+    }
+
+
     @GetMapping("images/{house}/{fileId:.+}")
     @ResponseBody
     fun getImage(@PathVariable("house") houseId: Long,
@@ -82,7 +98,7 @@ class HouseController(@Autowired val service: HouseService,
 
     @GetMapping("houses")
     fun listHouses(model: Model): String {
-        val houses: List<House> = service.getAll()
+        val houses: List<House> = service.getAvailable(0, 30)
         model.addAttribute("houses", houses)
         return "house/houses"
     }
