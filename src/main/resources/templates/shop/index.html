@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title + ' | NUST Accommodation'}"></title>
+    <title th:text="${title + ' | Student Guide'}"></title>
     <div th:replace="fragments/head :: head"></div>
 </head>
 <body>
@@ -18,7 +18,7 @@
                         width="100%"
                         height="512px"
                         frameborder="0" style="border:0"
-                        th:src="@{https://www.google.com/maps/embed/v1/search?key=AIzaSyBqF9RfUQ9K4_TdmyFLZie2X202gDuAihQ(q=${'Shops around NUST Bulawayo'})}"
+                        th:src="@{https://www.google.com/maps/embed/v1/search?key=AIzaSyBqF9RfUQ9K4_TdmyFLZie2X202gDuAihQ(q=${'Shops around Bulawayo'})}"
                         allowfullscreen>
                 </iframe>
             </div>
