@@ -102,4 +102,11 @@ class HouseController(@Autowired val service: HouseService,
         model.addAttribute("houses", houses)
         return "house/houses"
     }
+
+    @GetMapping("admin/houses")
+    fun listAllHouses(model: Model): String {
+        val houses: List<House> = service.getAll()
+        model.addAttribute("houses", houses)
+        return "house/houses"
+    }
 }

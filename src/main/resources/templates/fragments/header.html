@@ -12,7 +12,7 @@
         </button>
         <a class="navbar-brand"
            href="/">
-            Accommodation
+            Student Guide
         </a>
         <div class="collapse navbar-collapse" id="navbarToggler">
 
@@ -24,7 +24,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="housesDropdown">
                         <a class="dropdown-item" href="/houses">Houses</a>
-                        <a  sec:authorize="isFullyAuthenticated()" class="dropdown-item" href="/admin/house/create">Create House</a>
+                        <a sec:authorize="isFullyAuthenticated()" class="dropdown-item" href="/admin/house/create">Create
+                            House</a>
+                        <a sec:authorize="isFullyAuthenticated()" class="dropdown-item" href="/admin/houses">Manage
+                            Houses</a>
                         <!--<a class="dropdown-item" href="#">This</a>-->
                     </div>
                 </li>
