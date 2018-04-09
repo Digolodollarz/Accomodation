@@ -28,6 +28,8 @@ class HouseForm() {
         this.owner = house.owner
         this.price = house.price
         this.available = house.available
-        this.active = house.active
+        this.active = if (house.available != null) {
+            house.available
+        } else true
     }
 }
