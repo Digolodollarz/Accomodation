@@ -43,8 +43,8 @@ class House {
     var price: Float? = 0f
 
     @Column
-    var available: Boolean = true
+    var available: Boolean? = true
 
     @Column
-    var active: Boolean = true
+    var active: Boolean? = true
 }
